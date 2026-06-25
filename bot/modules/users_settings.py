@@ -108,8 +108,8 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
         else: lastused = "Bot Not Used yet.."
 
         text = BotTheme('UNIVERSAL', NAME=name, YT=escape(ytopt), DT=f"{dailytas} / {dailytl}", LAST_USED=lastused, BOT_PM=bot_pm, MEDIAINFO=mediainfo, SAVE_MODE=save_mode, USESS=u_sess)
-        buttons.ibutton("Back", f"userset {user_id} back", "footer")
-        buttons.ibutton("Close", f"userset {user_id} close", "footer")
+        buttons.ibutton("◀️", f"userset {user_id} back", "footer")
+        buttons.ibutton("❌", f"userset {user_id} close", "footer")
         button = buttons.build_menu(2)
     elif key == 'mirror':
         buttons.ibutton("RClone", f"userset {user_id} rcc")
@@ -138,8 +138,8 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
         text = BotTheme('MIRROR', NAME=name, RCLONE=rccmsg, DDL_SERVER=ddl_serv, DM=f"{dailyup} / {dailytlup}", MREMNAME=escape(mremname), MPREFIX=escape(mprefix),
                 MSUFFIX=escape(msuffix), TMODE=tds_mode, USERTD=user_tds)
 
-        buttons.ibutton("Back", f"userset {user_id} back", "footer")
-        buttons.ibutton("Close", f"userset {user_id} close", "footer")
+        buttons.ibutton("◀️", f"userset {user_id} back", "footer")
+        buttons.ibutton("❌", f"userset {user_id} close", "footer")
         button = buttons.build_menu(2)
     elif key == 'leech':
         if user_dict.get('as_doc', False) or 'as_doc' not in user_dict and config_dict['AS_DOCUMENT']:
@@ -189,8 +189,8 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
                 LDUMP=ldump, METADATA=escape(metadata),
                 ATTACHMENT=escape(lattachment))
 
-        buttons.ibutton("Back", f"userset {user_id} back", "footer")
-        buttons.ibutton("Close", f"userset {user_id} close", "footer")
+        buttons.ibutton("◀️", f"userset {user_id} back", "footer")
+        buttons.ibutton("❌", f"userset {user_id} close", "footer")
         button = buttons.build_menu(2)
     elif key == "ddl_servers":
         ddl_serv, serv_list = 0, []
@@ -204,8 +204,8 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
                f"➲ <b>Description :</b> <i>{desp_dict[key][0]}</i>"
         for btn in ['gofile', 'streamtape']:
             buttons.ibutton(f"{'✅️' if btn in serv_list else ''} {fname_dict[btn]}", f"userset {user_id} {btn}")
-        buttons.ibutton("Back", f"userset {user_id} back mirror", "footer")
-        buttons.ibutton("Close", f"userset {user_id} close", "footer")
+        buttons.ibutton("◀️", f"userset {user_id} back mirror", "footer")
+        buttons.ibutton("❌", f"userset {user_id} close", "footer")
         button = buttons.build_menu(2)
     elif edit_type:
         text = f"㊂ <b><u>{fname_dict[key]} Settings :</u></b>\n\n"
@@ -268,8 +268,8 @@ async def get_user_settings(from_user, key=None, edit_type=None, edit_mode=None)
             elif key == 'user_tds':
                 buttons.ibutton('Show UserTDs', f"userset {user_id} show_tds", "header")
             buttons.ibutton("↻ Delete", f"userset {user_id} d{key}")
-        buttons.ibutton("Back", f"userset {user_id} back {edit_type}", "footer")
-        buttons.ibutton("Close", f"userset {user_id} close", "footer")
+        buttons.ibutton("◀️", f"userset {user_id} back {edit_type}", "footer")
+        buttons.ibutton("❌", f"userset {user_id} close", "footer")
         button = buttons.build_menu(2)
     return text, button
 
@@ -467,7 +467,7 @@ async def edit_user_settings(client, query):
     rclone_path = f'wcl/{user_id}.conf'
     user_dict = user_data.get(user_id, {})
     if user_id != int(data[1]):
-        await query.answer("Not Yours!", show_alert=True)
+        await query.answer("𝙏𝙝𝙖𝙩'𝙨 𝙉𝙤𝙩 𝙔𝙤𝙪𝙧𝙨...🤧", show_alert=True)
     elif data[2] in ['universal', 'mirror', 'leech']:
         await query.answer()
         await update_user_settings(query, data[2])
