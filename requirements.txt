@@ -31,7 +31,7 @@ psutil
 pybase64
 pycountry
 pymongo
-pyrofork
+pyrotgfork
 python-dotenv
 python-magic
 qbittorrent-api
