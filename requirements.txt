@@ -41,7 +41,7 @@ telegraph
 tenacity
 tgcrypto
 uv
-uvloop==0.21.0
+uvloop
 xattr
 yt-dlp
 setuptools
